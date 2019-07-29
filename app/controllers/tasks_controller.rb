@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-before_action :set_task, only:[:show, :edit, :update, :destory]
+before_action :set_task, only:[:show, :edit, :update, :destroy]
   
   def index
     @tasks = Task.all
@@ -38,7 +38,6 @@ before_action :set_task, only:[:show, :edit, :update, :destory]
   end
 
   def destroy
-    set_task
     @task.destroy
 
     flash[:success] = 'タスクは正常に削除されました'
