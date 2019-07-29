@@ -38,6 +38,7 @@ before_action :set_task, only:[:show, :edit, :update, :destory]
   end
 
   def destroy
+    set_task
     @task.destroy
 
     flash[:success] = 'タスクは正常に削除されました'
@@ -51,6 +52,6 @@ before_action :set_task, only:[:show, :edit, :update, :destory]
   end
   
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :status)
   end
 end
